@@ -30,7 +30,7 @@ function handleClick(event){
     }
 }
 
-function removeHidden(){
+function removeHidden() {
     firstCardClicked.classList.remove('hidden');
     secondCardClicked.classList.remove('hidden');
     firstCardClicked = null;
