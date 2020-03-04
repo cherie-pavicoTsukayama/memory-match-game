@@ -4,6 +4,8 @@ var firstCardClicked = null;
 var secondCardClicked = null;
 var firstCardClasses = null;
 var secondCardClasses = null;
+var maxMatches = 9;
+var matches = 0;
 
 function handleClick(event){
     if(event.target.className.indexOf("card-back") === -1){
@@ -24,6 +26,11 @@ function handleClick(event){
             gameCards.addEventListener('click', handleClick);
             firstCardClicked = null;
             secondCardClicked = null;
+            matches++;
+            console.log(matches);
+            if(matches === maxMatches){
+                document.querySelector(".modal-container").classList.remove('hidden');
+            }
         } else {
             setTimeout(removeHidden, 1500);
         }
