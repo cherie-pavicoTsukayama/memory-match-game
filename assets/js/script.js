@@ -60,3 +60,10 @@ function calculateAccuracy(attempts, matches){
     return Math.trunc(accuracy * 100) + "%";
 
 }
+
+function resetGame() {
+    matches = null;
+    attempts = 0;
+    gamesPlayed++;
+    displayStats();
+}
