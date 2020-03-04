@@ -5,13 +5,14 @@ var secondCardClicked = null;
 var firstCardClasses = null;
 var secondCardClasses = null;
 var maxMatches = 9;
-var matches = 0;
+var matches = null;
+var attempts = 0;
+var gamesPlayed = 0;
 
 function handleClick(event){
     if(event.target.className.indexOf("card-back") === -1){
         return;
     }
-
     var clickedElement = event.target;
     clickedElement.classList.add('hidden');
 
@@ -27,7 +28,8 @@ function handleClick(event){
             firstCardClicked = null;
             secondCardClicked = null;
             matches++;
-            console.log(matches);
+            attempts++;
+            displayStats();
             if(matches === maxMatches){
                 document.querySelector(".modal-container").classList.remove('hidden');
             }
@@ -43,5 +45,18 @@ function removeHidden() {
     firstCardClicked = null;
     secondCardClicked = null;
     gameCards.addEventListener('click', handleClick);
+    attempts++;
+    displayStats();
+}
+
+function displayStats(){
+    document.getElementById('gamesPlayed').textContent = gamesPlayed;
+    document.getElementById('attempts').textContent = attempts;
+    document.getElementById('accuracy').textContent = calculateAccuracy(attempts, matches);
+}
+
+function calculateAccuracy(attempts, matches){
+    var accuracy = matches / attempts;
+    return Math.trunc(accuracy * 100) + "%";
 
 }
