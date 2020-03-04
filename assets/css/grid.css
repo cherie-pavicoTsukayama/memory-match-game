@@ -4,6 +4,8 @@
     max-width: 1500px;
     margin: auto;
     justify-content: center;
+    position: relative;
+
 }
 
 .row {

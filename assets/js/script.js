@@ -28,6 +28,9 @@ function handleClick(event){
             secondCardClicked = null;
             matches++;
             console.log(matches);
+            if(matches === maxMatches){
+                console.log('You have won!');
+            }
         } else {
             setTimeout(removeHidden, 1500);
         }
