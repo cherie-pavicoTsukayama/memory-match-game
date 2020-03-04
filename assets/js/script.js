@@ -71,6 +71,7 @@ function resetGame() {
     gamesPlayed++;
     displayStats();
     resetCards();
+    shuffleCards();
     var hideModal = document.getElementById('modalContainer');
     hideModal.classList.add('hidden');
 }
@@ -84,3 +85,42 @@ function resetCards() {
 
 var button = document.getElementById('button');
 button.addEventListener('click', resetGame);
+
+function shuffleCards() {
+    var allFrontCards = document.querySelectorAll('.card-front');
+    var newClassArray = shuffleClasses();
+    for(var i = 0; i < allFrontCards.length; i++){
+        allFrontCards[i].className = "null";
+    }
+    for (var newClass = 0; newClass < newClassArray.length; newClass++){
+        allFrontCards[newClass].className = "card-front " + newClassArray[newClass];
+    }
+}
+
+function shuffleClasses(){
+    var logoClasses = ['css-logo',
+        'docker-logo',
+        'gitHub-logo',
+        'html-logo',
+        'js-logo',
+        'mysql-logo',
+        'node-logo',
+        'php-logo',
+        'react-logo',
+        'css-logo',
+        'docker-logo',
+        'gitHub-logo',
+        'html-logo',
+        'js-logo',
+        'mysql-logo',
+        'node-logo',
+        'php-logo',
+        'react-logo']
+    for (var i = 0; i < logoClasses.length; i++) {
+        var randomization = Math.floor(Math.random() * logoClasses.length)
+        var placeHolder = logoClasses[i];
+        logoClasses[i] = logoClasses[randomization];
+        logoClasses[randomization] = placeHolder;
+    }
+    return logoClasses;
+}
