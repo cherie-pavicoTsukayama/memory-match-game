@@ -38,7 +38,7 @@ p {
     font-size: 3rem;
     border-radius: 200px;
     text-shadow: 1px 1px 5px #000;
-    box-shadow: 0 0 200px cyan;
+    box-shadow: 0 0 100px cyan;
     border: 2px solid rgb(161, 249, 255);
 
 }

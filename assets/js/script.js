@@ -29,7 +29,7 @@ function handleClick(event){
             matches++;
             console.log(matches);
             if(matches === maxMatches){
-                console.log('You have won!');
+                document.querySelector(".modal-container").classList.remove('hidden');
             }
         } else {
             setTimeout(removeHidden, 1500);
