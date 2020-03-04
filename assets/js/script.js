@@ -91,9 +91,7 @@ function shuffleCards() {
     var newClassArray = shuffleClasses();
     for(var i = 0; i < allFrontCards.length; i++){
         allFrontCards[i].className = "null";
-    }
-    for (var newClass = 0; newClass < newClassArray.length; newClass++){
-        allFrontCards[newClass].className = "card-front " + newClassArray[newClass];
+        allFrontCards[i].className = "card-front " + newClassArray[i];
     }
 }
 
