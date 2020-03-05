@@ -3,16 +3,28 @@ body {
     background-image: url(../images/customImages/backgroundImage-neon.png);
     background-size: cover;
     margin: 0;
+    position: relative;
 }
 
 .header-row {
+    display: flex;
     font-size: 3em;
+    color: white;
+    font-family: "Monoton";
+    text-shadow: 0px 0px 20px rgb(0, 208, 255);
 }
+
+.header-row > div > p {
+    margin: 0;
+    font-size: 8vw;
+}
+
 aside > div {
     height: 30vh;
     width: 100%;
     background-image: url(../images/customImages/stats-bg-image.png);
     background-size: cover;
+    background-repeat: no-repeat;
     background-position: center center;
     display: flex;
     flex-wrap: wrap;

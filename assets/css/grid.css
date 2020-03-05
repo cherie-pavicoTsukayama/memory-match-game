@@ -4,7 +4,7 @@
     max-width: 1500px;
     margin: auto;
     justify-content: center;
-    position: relative;
+    /* position: relative; */
 
 }
 
@@ -18,10 +18,9 @@
 }
 
 .header-row {
-    width: 100%;
-    height: 10%;
     display: flex;
     margin-bottom: .5rem;
+    transform: rotate(270deg);
     align-items: center;
     justify-content: center;
 }

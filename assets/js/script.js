@@ -1,6 +1,6 @@
 var dynamicContainer = document.createElement('main');
 dynamicContainer.setAttribute('id', 'gameCards');
-dynamicContainer.className = 'col-10';
+dynamicContainer.className = 'col-9';
 document.querySelector('aside').insertAdjacentElement('afterend', dynamicContainer)
 var startingCardLogos = shuffleClasses();
 
