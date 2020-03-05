@@ -42,11 +42,7 @@ main{
     height: 100%;
 }
 
-aside > div{
-    height: 10%;
-    width: 80%;
-    background-color: #87CDEA;
-}
+
 
 .col-1{
     width: 8%;
