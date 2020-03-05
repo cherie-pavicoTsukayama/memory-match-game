@@ -1,3 +1,24 @@
+var dynamicContainer = document.createElement('main');
+dynamicContainer.setAttribute('id', 'gameCards');
+dynamicContainer.className = 'col-10';
+document.querySelector('aside').insertAdjacentElement('afterend', dynamicContainer)
+var startingCardLogos = shuffleClasses();
+
+for(var i = 0; i < 18; i++){
+    var dynamicCardBack = document.createElement('div');
+    dynamicCardBack.classList.add('card-back');
+
+    var dynamicCardFront = document.createElement('div');
+    dynamicCardFront.classList.add('card-front', startingCardLogos[i]);
+
+    var dynamicCard = document.createElement('div');
+    dynamicCard.classList.add("col-2", "card");
+    dynamicCard.appendChild(dynamicCardFront);
+    dynamicCard.appendChild(dynamicCardBack);
+
+    dynamicContainer.appendChild(dynamicCard);
+}
+
 var gameCards = document.getElementById('gameCards');
 gameCards.addEventListener('click', handleClick);
 var firstCardClicked = null;
@@ -8,6 +29,7 @@ var maxMatches = 9;
 var matches = null;
 var attempts = 0;
 var gamesPlayed = 0;
+
 
 function handleClick(event){
     if(event.target.className.indexOf("card-back") === -1){
