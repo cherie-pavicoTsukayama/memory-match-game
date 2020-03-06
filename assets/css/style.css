@@ -145,7 +145,7 @@ p {
 }
 
 .magenta-glow {
-    box-shadow: 0 0 20px magenta;
+    box-shadow: 0 0 40px magenta;
     border: 1px solid white;
     z-index: 1;
 
