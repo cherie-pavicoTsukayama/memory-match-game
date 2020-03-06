@@ -46,7 +46,14 @@ p {
     text-align: center;
     width: 100%;
     margin: 0;
-    font-size: 1.2vw;
+    font-size: 3.2vw;
+    line-height: 1em;
+}
+
+.stat-label {
+    font-size: 2vw;
+    width: 50%;
+    line-height: 1.2em;
 }
 
 .modal-container {
@@ -65,20 +72,23 @@ p {
     flex-wrap: wrap;
     justify-content: center;
     align-content: center;
-    width: 45%;
-    height: 30%;
-    background-image: linear-gradient(to top right, cyan, magenta) ;
+    width: 100%;
+    height: 100%;
+    background-image: url(../images/customImages/modalImage.png) ;
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
     color: white;
-    font-size: 3rem;
-    border-radius: 200px;
+    font-family: "Monoton", sans-serif;
+    text-transform: uppercase;
     text-shadow: 1px 1px 5px #000;
-    box-shadow: 0 0 100px cyan;
-    border: 2px solid rgb(161, 249, 255);
 }
 
 .modal > p {
     margin: 0;
     flex-basis: 100%;
+    font-size: 2.5vw;
+
 }
 
 .button {
@@ -126,39 +136,39 @@ p {
 }
 
 .css-logo {
-    background-image: url(../images/css-logo.png);
+    background-image: url(../images/customImages/front-cards/wings-frontCards.png);
 }
 
 .docker-logo {
-    background-image: url(../images/docker-logo.jpg);
+    background-image: url(../images/customImages/front-cards/unicorn-frontCard.png);
 }
 
 .gitHub-logo {
-    background-image: url(../images/gitHub-logo.png);
+    background-image: url(../images/customImages/front-cards/rocket-frontCard.png);
 }
 
 .html-logo {
-    background-image: url(../images/html-logo.png);
+    background-image: url(../images/customImages/front-cards/pizza-frontCard.png);
 }
 
 .js-logo {
-    background-image: url(../images/js-logo.png);
+    background-image: url(../images/customImages/front-cards/lips-frontCard.png);
 }
 
 .mysql-logo {
-    background-image: url(../images/mysql-logo.jpg);
+    background-image: url(../images/customImages/front-cards/lighting-frontCard.png);
 }
 
 .node-logo {
-    background-image: url(../images/node-logo.png);
+    background-image: url(../images/customImages/front-cards/hashTag-cardFront.png);
 }
 
 .php-logo {
-    background-image: url(../images/php-logo.jpeg);
+    background-image: url(../images/customImages/front-cards/brokenHeart-cardFront.png);
 }
 
 .react-logo {
-    background-image: url(../images/react-logo.png);
+    background-image: url(../images/customImages/front-cards/angelHeart-cardFront.png);
 }
 
 .hidden {
