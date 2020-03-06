@@ -3,6 +3,7 @@
     height: 100%;
     max-width: 1500px;
     margin: auto;
+    align-items: center;
     justify-content: center;
     /* position: relative; */
 
@@ -20,6 +21,7 @@
 .header-row {
     display: flex;
     margin-bottom: .5rem;
+    margin-right: 14px;
     transform: rotate(270deg);
     align-items: center;
     justify-content: center;

@@ -37,6 +37,7 @@ function handleClick(event){
     }
     var clickedElement = event.target;
     clickedElement.classList.add('hidden');
+    clickedElement.previousSibling.classList.add('magenta-glow');
 
     if (!firstCardClicked) {
         firstCardClicked = clickedElement;
@@ -63,7 +64,9 @@ function handleClick(event){
 
 function removeHidden() {
     firstCardClicked.classList.remove('hidden');
+    firstCardClicked.previousSibling.classList.remove('magenta-glow');
     secondCardClicked.classList.remove('hidden');
+    secondCardClicked.previousSibling.classList.remove('magenta-glow');
     firstCardClicked = null;
     secondCardClicked = null;
     gameCards.addEventListener('click', handleClick);
