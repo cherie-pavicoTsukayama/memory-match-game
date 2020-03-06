@@ -4,6 +4,8 @@
         <title>Memory Match</title>
         <link rel="stylesheet" href="./assets/css/style.css">
         <link rel="stylesheet" href="./assets/css/grid.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="https://fonts.googleapis.com/css?family=Monoton|Pacifico&display=swap" rel="stylesheet">
     </head>
     <body>
         <div id="modalContainer" class="modal-container hidden">
@@ -15,32 +17,24 @@
             </div>
         </div>
         <div class="container">
-            <header class="header-row">
-                <div>
-                    <p>LFZ Memory Match</p>
-                </div>
-            </header>
+
             <div class="row">
-                <aside class="col-2">
+                <header class="header-row col-1">
                     <div>
-                        <p>Stats</p>
+                        <p>match</p>
                     </div>
-                    <div>
-                        <p>Games Played</p>
-                    </div>
-                    <div>
+                </header>
+                <aside class="col-2 ">
+                    <div class="stats pacifico-font">
+                        <p class="stat-label">Games Played</p>
                         <p id="gamesPlayed">0</p>
                     </div>
-                    <div>
-                        <p>Attempts</p>
-                    </div>
-                    <div>
+                    <div class="stats pacifico-font">
+                        <p class="stat-label">Attempts</p>
                         <p id="attempts">0</p>
                     </div>
-                    <div>
-                        <p>Accuracy</p>
-                    </div>
-                    <div>
+                    <div class="stats pacifico-font">
+                        <p class="stat-label">Accuracy</p>
                         <p id="accuracy">0</p>
                     </div>
 
