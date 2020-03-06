@@ -81,3 +81,46 @@ main{
 .col-12{
     width: 96%;
 }
+
+@media only screen and (max-width: 376px){
+    .row {
+        justify-content: flex-start;
+        flex-wrap: nowrap;
+        flex-direction: column;
+        height: 100%;
+    }
+    .col-1{
+        width: 100%;
+    }
+    .header-row {
+        transform: rotate(0deg);
+        margin: 10px 0 5px 0;
+    }
+    .col-2 {
+        width: 100%;
+        flex-direction: row;
+        flex-wrap: nowrap;
+    }
+    .stats {
+        height: 125%;
+        background-size: contain;
+    }
+    .stats > p, stats-lable{
+        font-size: 4vw;
+    }
+    aside {
+        height: 15vh;
+    }
+    .col-s-3{
+        width: 30%;
+        margin-bottom: 2%;
+    }
+   .col-9 {
+       width: 100%;
+       height: 47vh;
+   }
+   .cyan-glow {
+       box-shadow: 0 0 10px cyan;
+   }
+
+}

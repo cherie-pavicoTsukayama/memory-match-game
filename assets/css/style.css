@@ -134,18 +134,21 @@ p {
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
-    position: absolute;
-
 }
 
 .card-back {
     border: 1px solid white;
-    box-shadow: 0 0 20px cyan;
     background-image: url(../images/customImages/back-card-custom.jpg);
+    position: absolute;
+    top: 0;
+}
+
+.cyan-glow {
+    box-shadow: 0 0 20px cyan;
 }
 
 .magenta-glow {
-    box-shadow: 0 0 20px magenta;
+    box-shadow: 10px 0 40px magenta;
     border: 1px solid white;
     z-index: 1;
 
