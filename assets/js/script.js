@@ -36,8 +36,6 @@ for(var i = 0; i < 18; i++){
     cardFronts[i].classList.remove('hidden');
 }
 
-
-
 function handleClick(event){
     if(event.target.className.indexOf("card-back") === -1){
         return;
