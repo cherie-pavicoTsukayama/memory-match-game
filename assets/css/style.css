@@ -52,8 +52,9 @@ p {
 
 .stat-label {
     font-size: 2vw;
-    width: 50%;
+    width: 61%;
     line-height: 1.2em;
+    text-align: center;
 }
 
 .modal-container {
@@ -67,6 +68,7 @@ p {
     z-index: 2;
 }
 
+
 .modal {
     display: flex;
     flex-wrap: wrap;
@@ -74,14 +76,27 @@ p {
     align-content: center;
     width: 100%;
     height: 100%;
-    background-image: url(../images/customImages/modalImage.png) ;
-    background-size: contain;
-    background-position: center;
-    background-repeat: no-repeat;
     color: white;
     font-family: "Monoton", sans-serif;
     text-transform: uppercase;
     text-shadow: 1px 1px 5px #000;
+}
+
+.modal-bg-image {
+    width: 100%;
+    height: 100%;
+    background-image: url(../images/customImages/modalImage.png) ;
+    background-size: contain;
+    background-position: center center;
+    background-repeat: no-repeat;
+    animation: spin 60s linear infinite;
+    position: absolute;
+    z-index: -1;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
 }
 
 .modal > p {
@@ -98,12 +113,12 @@ p {
 }
 
 .button > button {
-    border-radius: 20px;
+    border-radius: 30px;
     margin-top: 10px;
     height: 100%;
     background-image: linear-gradient( to top, white, rgb(174, 174, 174), white);
-    font-size: 1rem;
-    padding: 10px 20px;
+    font-size: 1vw;
+    width: 17vw;
 }
 
 
@@ -132,6 +147,7 @@ p {
 .magenta-glow {
     box-shadow: 0 0 20px magenta;
     border: 1px solid white;
+    z-index: 1;
 
 }
 
