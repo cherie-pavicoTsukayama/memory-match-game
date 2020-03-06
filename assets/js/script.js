@@ -9,14 +9,16 @@ for(var i = 0; i < 18; i++){
     dynamicCardBack.classList.add('card-back');
 
     var dynamicCardFront = document.createElement('div');
-    dynamicCardFront.classList.add('card-front', startingCardLogos[i]);
+    dynamicCardFront.classList.add('hidden', 'card-front', startingCardLogos[i]);
 
     var dynamicCard = document.createElement('div');
     dynamicCard.classList.add("col-2", "card");
     dynamicCard.appendChild(dynamicCardFront);
     dynamicCard.appendChild(dynamicCardBack);
-
     dynamicContainer.appendChild(dynamicCard);
+    dynamicCardFront.classList.remove('hidden');
+
+
 }
 
 var gameCards = document.getElementById('gameCards');
@@ -29,6 +31,7 @@ var maxMatches = 9;
 var matches = null;
 var attempts = 0;
 var gamesPlayed = 0;
+
 
 
 function handleClick(event){
