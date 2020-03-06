@@ -1,26 +1,6 @@
 var dynamicContainer = document.createElement('main');
-dynamicContainer.setAttribute('id', 'gameCards');
-dynamicContainer.className = 'col-9';
 document.querySelector('aside').insertAdjacentElement('afterend', dynamicContainer)
-var startingCardLogos = shuffleClasses();
-
-for(var i = 0; i < 18; i++){
-    var dynamicCardBack = document.createElement('div');
-    dynamicCardBack.classList.add('card-back');
-
-    var dynamicCardFront = document.createElement('div');
-    dynamicCardFront.classList.add('hidden', 'card-front', startingCardLogos[i]);
-
-    var dynamicCard = document.createElement('div');
-    dynamicCard.classList.add("col-2", "card");
-    dynamicCard.appendChild(dynamicCardFront);
-    dynamicCard.appendChild(dynamicCardBack);
-    dynamicContainer.appendChild(dynamicCard);
-    dynamicCardFront.classList.remove('hidden');
-
-
-}
-
+dynamicContainer.setAttribute('id', 'gameCards');
 var gameCards = document.getElementById('gameCards');
 gameCards.addEventListener('click', handleClick);
 var firstCardClicked = null;
@@ -31,6 +11,30 @@ var maxMatches = 9;
 var matches = null;
 var attempts = 0;
 var gamesPlayed = 0;
+
+
+dynamicContainer.className = 'col-9';
+var startingCardLogos = shuffleClasses();
+
+for (var i = 0; i < 18; i++) {
+    var dynamicCardBack = document.createElement('div');
+    dynamicCardBack.classList.add('card-back');
+
+    var dynamicCardFront = document.createElement('div');
+
+    var dynamicCard = document.createElement('div');
+    dynamicContainer.appendChild(dynamicCard);
+    dynamicCard.classList.add("col-2", "card");
+    dynamicCard.appendChild(dynamicCardFront);
+    dynamicCard.appendChild(dynamicCardBack);
+    dynamicCardFront.classList.add('hidden');
+    dynamicCardFront.classList.add('card-front', startingCardLogos[i]);
+}
+
+for (var i = 0; i < 18; i++) {
+    var cardFronts = document.querySelectorAll('.card-front');
+    cardFronts[i].classList.remove('hidden');
+}
 
 
 
