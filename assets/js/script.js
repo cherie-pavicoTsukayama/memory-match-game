@@ -1,8 +1,6 @@
 var dynamicContainer = document.createElement('main');
 document.querySelector('aside').insertAdjacentElement('afterend', dynamicContainer)
 dynamicContainer.setAttribute('id', 'gameCards');
-
-
 var gameCards = document.getElementById('gameCards');
 gameCards.addEventListener('click', handleClick);
 var firstCardClicked = null;
