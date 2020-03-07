@@ -13,6 +13,7 @@ body {
 
 .header-row {
     display: flex;
+    flex-wrap: nowrap;
     color: white;
     font-family: "Monoton", sans-serif;
     text-shadow: 0px 0px 20px rgb(0, 208, 255);
@@ -154,6 +155,24 @@ p {
 
 }
 
+.hint {
+    display: flex;
+    justify-content: center;
+}
+
+.hint-image {
+    height: 50px;
+    width: 50px;
+    align-self: center;
+    margin-left: 5px;
+}
+
+.hint > p.hint-text {
+    font-family: "Pacifico", sans-serif;
+    font-size: 1.3vw;
+    transform: rotate(90deg);
+    color: rgba(255, 255, 255, .2)
+}
 .css-logo {
     background-image: url(../images/customImages/front-cards/wings-frontCards.png);
 }
