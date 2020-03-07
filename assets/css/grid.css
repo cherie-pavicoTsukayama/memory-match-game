@@ -82,7 +82,8 @@ main{
     width: 96%;
 }
 
-@media only screen and (max-width: 376px){
+@media only screen and (max-width: 414px){
+
     .row {
         justify-content: flex-start;
         flex-wrap: nowrap;
@@ -123,4 +124,156 @@ main{
        box-shadow: 0 0 10px cyan;
    }
 
+}
+
+
+@media only screen and (min-width: 768px)
+and (max-width: 1024px)
+and (orientation: portrait){
+    .row {
+        justify-content: flex-start;
+        flex-wrap: nowrap;
+        flex-direction: column;
+        height: 100%;
+    }
+    .col-1{
+        width: 100%;
+    }
+    .header-row {
+        transform: rotate(0deg);
+        margin: 10px 0 5px 0;
+    }
+    .header-row > div > p {
+        font-size: 8vw;
+
+    }
+
+    .col-2 {
+        width: 100%;
+        flex-direction: row;
+        flex-wrap: nowrap;
+    }
+    .stats {
+        height: 125%;
+        background-size: contain;
+    }
+    .stats > p,
+    stats-lable {
+        font-size: 3vw;
+        width: 54%;
+    }
+    aside {
+        height: 15vh;
+    }
+    .col-s-3{
+        width: 30%;
+        margin-bottom: 2%;
+    }
+   .col-9 {
+       width: 100%;
+       height: 47vh;
+   }
+   .cyan-glow {
+       box-shadow: 0 0 10px cyan;
+   }
+
+   .magenta-glow {
+       box-shadow: 0 0 20px magenta;
+   }
+
+   .card {
+    height: 11vh;
+    width: 15vh;
+    margin: 9px 20px;
+   }
+   .modal-bg-image {
+       width: 240%;
+       height: 100%;
+       left: -71%;
+   }
+   .modal > p {
+       font-size: 8.5vw;
+   }
+   .button > button {
+       font-size: 3vw;
+       width: 54vw;
+   }
+}
+
+@media only screen and (min-width: 768px)
+and (max-width: 1024px)
+and (orientation: landscape){
+    body {
+        background-size: auto;
+        height: 89vh;
+    }
+    .row {
+        justify-content: flex-start;
+        flex-wrap: nowrap;
+        flex-direction: column;
+        height: 100%;
+        justify-content: space-around;
+    }
+    .col-1{
+        width: 100%;
+    }
+    .header-row {
+        transform: rotate(0deg);
+        margin: 10px 0 5px 0;
+    }
+    .header-row > div > p {
+        font-size: 8vw;
+
+    }
+
+    .col-2 {
+        width: 100%;
+        flex-direction: row;
+        flex-wrap: nowrap;
+    }
+    .stats {
+        height: 29vh;
+        background-size: contain;
+    }
+    .stats > p,
+    stats-lable {
+        font-size: 3vw;
+        width: 54%;
+    }
+    aside {
+        height: 15vh;
+    }
+    .col-s-3{
+        width: 30%;
+        margin-bottom: 2%;
+    }
+   .col-9 {
+       width: 100%;
+       height: 47vh;
+   }
+   .cyan-glow {
+       box-shadow: 0 0 10px cyan;
+   }
+
+   .magenta-glow {
+       box-shadow: 0 0 20px magenta;
+   }
+
+   .card {
+    height: 17vh;
+    width: 17vh;
+    margin: 9px 20px;
+   }
+   .modal-bg-image {
+       width: 240%;
+       height: 100%;
+       left: -71%;
+   }
+   .modal > p {
+       font-size: 8.5vw;
+   }
+   .button > button {
+       font-size: 3vw;
+       width: 54vw;
+   }
 }

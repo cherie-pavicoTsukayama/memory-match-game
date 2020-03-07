@@ -63,7 +63,7 @@ function handleClick(event){
                 document.querySelector(".modal-container").classList.remove('hidden');
             }
         } else {
-            setTimeout(removeHidden, 1500);
+            setTimeout(removeHidden, 1000);
         }
     }
 }
