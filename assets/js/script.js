@@ -13,7 +13,7 @@ var attempts = 0;
 var gamesPlayed = 0;
 
 
-dynamicContainer.className = 'col-9';
+dynamicContainer.className = 'col-8';
 var startingCardLogos = shuffleClasses();
 
 for (var i = 0; i < 18; i++) {
