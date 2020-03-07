@@ -232,7 +232,7 @@ and (orientation: landscape){
         flex-wrap: nowrap;
     }
     .stats {
-        height: 29vh;
+        height: 33vh;
         background-size: contain;
     }
     .stats > p,

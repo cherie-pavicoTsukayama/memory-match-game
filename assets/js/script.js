@@ -153,3 +153,7 @@ function shuffleClasses(){
     }
     return logoClasses;
 }
+
+function hint(){
+    firstCardClicked.classList
+}

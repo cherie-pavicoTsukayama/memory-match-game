@@ -171,7 +171,7 @@ p {
     font-family: "Pacifico", sans-serif;
     font-size: 1.3vw;
     transform: rotate(90deg);
-    color: rgba(255, 255, 255, .2)
+    color: rgba(255, 255, 255, .5)
 }
 .css-logo {
     background-image: url(../images/customImages/front-cards/wings-frontCards.png);
