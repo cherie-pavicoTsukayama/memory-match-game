@@ -15,7 +15,9 @@ var maxMatches = 9;
 var matches = null;
 var attempts = 0;
 var gamesPlayed = 0;
-var hintCounter = 0;
+var hintCounter = 3;
+var matchingCard;
+
 
 
 dynamicContainer.className = 'col-8';
@@ -40,7 +42,6 @@ for (var i = 0; i < 18; i++) {
     var cardFronts = document.querySelectorAll('.card-front');
     cardFronts[i].classList.remove('hidden');
 }
-
 
 function handleClick(event){
     if(event.target.className.indexOf("card-back") === -1){
@@ -83,6 +84,8 @@ function removeHidden() {
     gameCards.addEventListener('click', handleClick);
     attempts++;
     displayStats();
+    matchingCard.previousElementSibling.classList.remove('hint-glow');
+    matchingCard.previousElementSibling.classList.add('cyan-glow');
 }
 
 function displayStats(){
@@ -162,14 +165,15 @@ function shuffleClasses(){
 }
 
 function hint(){
-    if(firstCardClicked === null){
+    if (firstCardClicked === null && hintCounter !== 0){
         hintModal.classList.remove('hidden');
-    } else if (hintCounter < 3 && firstCardClicked !== null){
-        hintCounter++;
+    } else if (hintCounter > 0 && firstCardClicked !== null){
+        hintCounter -= 1;
+        var elHintCounter = document.getElementById('hintCounter');
+        elHintCounter.textContent = hintCounter;
         var firstCardImage = firstCardClicked.nextElementSibling.classList[1];
         var firstCardImageGlow = firstCardClicked.nextElementSibling.classList[2];
         var allFrontCards = document.querySelectorAll('.card-front');
-        var matchingCard ;
         for(var i = 0; i < allFrontCards.length; i++){
             if (allFrontCards[i].classList[1] === firstCardImage && allFrontCards[i].classList[2] !== firstCardImageGlow){
                 matchingCard = allFrontCards[i];
@@ -177,11 +181,23 @@ function hint(){
                 matchingCard.previousElementSibling.classList.add('hint-glow');
             }
         }
-    } else {
-        console.log("No more hints left");
     }
+    hintDisable();
 }
 
 function closeHintModal(){
     hintModal.classList.add('hidden');
 }
+
+function hintDisable(){
+    if (hintCounter === 0) {
+        var hintContainer = document.getElementById('hintContainer');
+        hintContainer.classList.add('hint-disabled');
+    }
+}
+
+
+// if (secondCardClicked !== matchingCard) {
+//     matchingCard.previousElementSibling.classList.remove('hint-glow');
+//     matchingCard.previousElementSibling.classList.add('cyan-glow');
+// }

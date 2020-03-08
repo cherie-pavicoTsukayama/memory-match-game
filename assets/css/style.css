@@ -164,10 +164,25 @@ p {
     justify-content: center;
 }
 
-.hint-image {
-    height: 6vw;
+.hint-disabled {
+    opacity: 25%;
+    filter: grayscale(25%)
 }
+
+.hint-image {
+    height: 4vw;
+    width: 4vw;
+    background-image: url(../images/customImages/hintCounter.png);
+    background-size: cover;
+}
+
+.hint-number {
+    font-size: 1.7vw;
+    margin-top: .3vw;
+}
+
 .hint-text {
+    flex-basis: 100%;
     font-size: 1.3vw;
     color: rgba(255, 0255, 0255, 0.3);
     text-shadow: 0px 0px 20px rgb(0, 208, 255);
