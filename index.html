@@ -17,12 +17,22 @@
                 <div class="modal-bg-image"></div>
             </div>
         </div>
+        <div id="hintModal" class="modal-container hidden">
+            <div class="modal">
+                <p>Please select<br>a card.</p>
+                <div class="hint-modal-bg-image"></div>
+            </div>
+        </div>
         <div class="container">
             <div class="row">
                 <header class="header-row col-1">
                     <div>
                         <p>match</p>
+
                     </div>
+
+
+
                 </header>
                 <aside class="col-2 ">
                     <div class="stats pacifico-font">
@@ -37,8 +47,14 @@
                         <p class="stat-label">Accuracy</p>
                         <p id="accuracy">0</p>
                     </div>
-
                 </aside>
+                <div  id="hintContainer" class="hint col-1">
+                    <div id="hint" class="hint-image">
+                        <p id="hintCounter" class="hint-number pacifico-font">3</p>
+                    </div>
+                    <p id="hint" class="hint-text pacifico-font">Hint</p>
+
+                </div>
             </div>
         </div>
         <script src="assets/js/script.js"></script>

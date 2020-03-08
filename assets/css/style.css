@@ -13,6 +13,7 @@ body {
 
 .header-row {
     display: flex;
+    flex-wrap: nowrap;
     color: white;
     font-family: "Monoton", sans-serif;
     text-shadow: 0px 0px 20px rgb(0, 208, 255);
@@ -21,6 +22,8 @@ body {
 .header-row > div > p {
     margin: 0;
     font-size: 10vw;
+    transform: rotate(270deg);
+
 }
 
 aside > div {
@@ -144,15 +147,68 @@ p {
 }
 
 .cyan-glow {
-    box-shadow: 0 0 20px cyan;
+    box-shadow: 0 0 30px cyan;
 }
 
 .magenta-glow {
-    box-shadow: 0 0 40px magenta;
+    box-shadow: 0 0 60px magenta;
     border: 1px solid white;
     z-index: 1;
 
 }
+
+.hint {
+    display: flex;
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content: center;
+}
+
+.hint:hover {
+    cursor: default;
+}
+
+.hint-disabled {
+    opacity: 25%;
+    filter: grayscale(25%)
+}
+
+.hint-image {
+    height: 4vw;
+    width: 4vw;
+    background-image: url(../images/customImages/hintCounter.png);
+    background-size: cover;
+}
+
+.hint-number {
+    font-size: 1.7vw;
+    margin-top: .3vw;
+}
+
+.hint-text {
+    flex-basis: 100%;
+    font-size: 1.3vw;
+    color: rgba(255, 0255, 0255, 0.3);
+    text-shadow: 0px 0px 20px rgb(0, 208, 255);
+}
+
+.hint-glow{
+    box-shadow: 0 0 100px yellow;
+    border: 1px solid white;
+    z-index: 1;
+}
+
+.hint-modal-bg-image {
+    width: 100%;
+    height: 114%;
+    background-image: url(../images/customImages/hintSelectCard.png) ;
+    background-size: contain;
+    background-position: center center;
+    background-repeat: no-repeat;
+    position: absolute;
+    z-index: -1;
+}
+
 
 .css-logo {
     background-image: url(../images/customImages/front-cards/wings-frontCards.png);

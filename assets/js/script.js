@@ -3,6 +3,10 @@ document.querySelector('aside').insertAdjacentElement('afterend', dynamicContain
 dynamicContainer.setAttribute('id', 'gameCards');
 var gameCards = document.getElementById('gameCards');
 gameCards.addEventListener('click', handleClick);
+var hintButton = document.getElementById('hint');
+hintButton.addEventListener('click', hint);
+var hintModal = document.getElementById('hintModal');
+hintModal.addEventListener('click', closeHintModal);
 var firstCardClicked = null;
 var secondCardClicked = null;
 var firstCardClasses = null;
@@ -11,9 +15,12 @@ var maxMatches = 9;
 var matches = null;
 var attempts = 0;
 var gamesPlayed = 0;
+var hintCounter = 3;
+var matchingCard;
 
 
-dynamicContainer.className = 'col-9';
+
+dynamicContainer.className = 'col-8';
 var startingCardLogos = shuffleClasses();
 
 for (var i = 0; i < 18; i++) {
@@ -34,7 +41,21 @@ for (var i = 0; i < 18; i++) {
 for (var i = 0; i < 18; i++) {
     var cardFronts = document.querySelectorAll('.card-front');
     cardFronts[i].classList.remove('hidden');
+    var cardBack = document.getElementsByClassName('card-back');
+    cardBack[i].addEventListener('click', clickSound);
 }
+var clickCardSound = new Audio();
+function clickSound(){
+    clickCardSound.src = "./assets/sound/click.mp3";
+    clickCardSound.play();
+}
+
+var match = new Audio();
+function matchSound() {
+    match.src = "./assets/sound/match.mp3";
+    match.play();
+}
+
 
 
 function handleClick(event){
@@ -59,6 +80,7 @@ function handleClick(event){
             matches++;
             attempts++;
             displayStats();
+            matchSound();
             if(matches === maxMatches){
                 document.querySelector(".modal-container").classList.remove('hidden');
             }
@@ -67,6 +89,9 @@ function handleClick(event){
         }
     }
 }
+
+var clickCardSound = new Audio();
+clickCardSound.src = "./assets/sound/Tap.mp3"
 
 function removeHidden() {
     firstCardClicked.classList.remove('hidden');
@@ -78,6 +103,8 @@ function removeHidden() {
     gameCards.addEventListener('click', handleClick);
     attempts++;
     displayStats();
+    matchingCard.previousElementSibling.classList.remove('hint-glow');
+    matchingCard.previousElementSibling.classList.add('cyan-glow');
 }
 
 function displayStats(){
@@ -103,6 +130,7 @@ function resetGame() {
     displayStats();
     resetCards();
     shuffleCards();
+    resetHintCounter();
     var hideModal = document.getElementById('modalContainer');
     hideModal.classList.add('hidden');
 }
@@ -110,7 +138,8 @@ function resetGame() {
 function resetCards() {
     var hiddenCards = document.querySelectorAll('.card-back');
     for(var i = 0; i < hiddenCards.length; i++){
-        hiddenCards[i].classList.remove('hidden');
+        hiddenCards[i].classList.remove('hidden', 'hint-glow');
+        hiddenCards[i].classList.add('cyan-glow');
     }
 }
 
@@ -152,4 +181,45 @@ function shuffleClasses(){
         logoClasses[randomization] = placeHolder;
     }
     return logoClasses;
+}
+
+function hint(){
+    if (firstCardClicked === null && hintCounter !== 0){
+        hintModal.classList.remove('hidden');
+    } else if (hintCounter > 0 && firstCardClicked !== null){
+        hintCounter -= 1;
+        var elHintCounter = document.getElementById('hintCounter');
+        elHintCounter.textContent = hintCounter;
+        var firstCardImage = firstCardClicked.nextElementSibling.classList[1];
+        var firstCardImageGlow = firstCardClicked.nextElementSibling.classList[2];
+        var allFrontCards = document.querySelectorAll('.card-front');
+        for(var i = 0; i < allFrontCards.length; i++){
+            if (allFrontCards[i].classList[1] === firstCardImage && allFrontCards[i].classList[2] !== firstCardImageGlow){
+                matchingCard = allFrontCards[i];
+                matchingCard.previousElementSibling.classList.remove('cyan-glow');
+                matchingCard.previousElementSibling.classList.add('hint-glow');
+            }
+        }
+    }
+    hintDisable();
+}
+
+function closeHintModal(){
+    hintModal.classList.add('hidden');
+}
+
+function hintDisable(){
+    if (hintCounter === 0) {
+        var hintContainer = document.getElementById('hintContainer');
+        hintContainer.classList.add('hint-disabled');
+    }
+}
+
+
+function resetHintCounter() {
+    hintCounter = 3;
+    var elHintCounter = document.getElementById('hintCounter');
+    elHintCounter.textContent = hintCounter;
+    var hintContainer = document.getElementById('hintContainer');
+    hintContainer.classList.remove('hint-disabled');
 }
