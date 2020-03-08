@@ -147,11 +147,11 @@ p {
 }
 
 .cyan-glow {
-    box-shadow: 0 0 20px cyan;
+    box-shadow: 0 0 30px cyan;
 }
 
 .magenta-glow {
-    box-shadow: 0 0 40px magenta;
+    box-shadow: 0 0 60px magenta;
     border: 1px solid white;
     z-index: 1;
 
@@ -172,6 +172,14 @@ p {
     color: rgba(255, 0255, 0255, 0.3);
     text-shadow: 0px 0px 20px rgb(0, 208, 255);
 }
+
+.hint-glow{
+    box-shadow: 0 0 100px yellow;
+    border: 1px solid white;
+    z-index: 1;
+
+}
+
 .css-logo {
     background-image: url(../images/customImages/front-cards/wings-frontCards.png);
 }

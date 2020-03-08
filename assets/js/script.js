@@ -3,6 +3,8 @@ document.querySelector('aside').insertAdjacentElement('afterend', dynamicContain
 dynamicContainer.setAttribute('id', 'gameCards');
 var gameCards = document.getElementById('gameCards');
 gameCards.addEventListener('click', handleClick);
+var hintButton = document.getElementById('hint');
+hintButton.addEventListener('click', hint);
 var firstCardClicked = null;
 var secondCardClicked = null;
 var firstCardClasses = null;
@@ -110,7 +112,8 @@ function resetGame() {
 function resetCards() {
     var hiddenCards = document.querySelectorAll('.card-back');
     for(var i = 0; i < hiddenCards.length; i++){
-        hiddenCards[i].classList.remove('hidden');
+        hiddenCards[i].classList.remove('hidden', 'hint-glow');
+        hiddenCards[i].classList.add('cyan-glow');
     }
 }
 
@@ -155,5 +158,15 @@ function shuffleClasses(){
 }
 
 function hint(){
-    firstCardClicked.classList
+    var firstCardImage =  firstCardClicked.nextElementSibling.classList[1];
+    var firstCardImageGlow = firstCardClicked.nextElementSibling.classList[2];
+    var allFrontCards = document.querySelectorAll('.card-front');
+    var matchingCard ;
+    for(var i = 0; i < allFrontCards.length; i++){
+        if (allFrontCards[i].classList[1] === firstCardImage && allFrontCards[i].classList[2] !== firstCardImageGlow){
+            matchingCard = allFrontCards[i];
+        }
+    }
+    matchingCard.previousElementSibling.classList.remove('cyan-glow');
+    matchingCard.previousElementSibling.classList.add('hint-glow');
 }
