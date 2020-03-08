@@ -41,7 +41,22 @@ for (var i = 0; i < 18; i++) {
 for (var i = 0; i < 18; i++) {
     var cardFronts = document.querySelectorAll('.card-front');
     cardFronts[i].classList.remove('hidden');
+    var cardBack = document.getElementsByClassName('card-back');
+    cardBack[i].addEventListener('click', clickSound);
 }
+var clickCardSound = new Audio();
+function clickSound(){
+    clickCardSound.src = "./assets/sound/click.mp3";
+    clickCardSound.play();
+}
+
+var match = new Audio();
+function matchSound() {
+    match.src = "./assets/sound/match.mp3";
+    match.play();
+}
+
+
 
 function handleClick(event){
     if(event.target.className.indexOf("card-back") === -1){
@@ -65,6 +80,7 @@ function handleClick(event){
             matches++;
             attempts++;
             displayStats();
+            matchSound();
             if(matches === maxMatches){
                 document.querySelector(".modal-container").classList.remove('hidden');
             }
@@ -73,6 +89,9 @@ function handleClick(event){
         }
     }
 }
+
+var clickCardSound = new Audio();
+clickCardSound.src = "./assets/sound/Tap.mp3"
 
 function removeHidden() {
     firstCardClicked.classList.remove('hidden');
@@ -105,13 +124,13 @@ function calculateAccuracy(attempts, matches){
 }
 
 function resetGame() {
-    hintCounter = 0;
     matches = null;
     attempts = 0;
     gamesPlayed++;
     displayStats();
     resetCards();
     shuffleCards();
+    resetHintCounter();
     var hideModal = document.getElementById('modalContainer');
     hideModal.classList.add('hidden');
 }
@@ -197,7 +216,10 @@ function hintDisable(){
 }
 
 
-// if (secondCardClicked !== matchingCard) {
-//     matchingCard.previousElementSibling.classList.remove('hint-glow');
-//     matchingCard.previousElementSibling.classList.add('cyan-glow');
-// }
+function resetHintCounter() {
+    hintCounter = 3;
+    var elHintCounter = document.getElementById('hintCounter');
+    elHintCounter.textContent = hintCounter;
+    var hintContainer = document.getElementById('hintContainer');
+    hintContainer.classList.remove('hint-disabled');
+}
