@@ -5,6 +5,8 @@ var gameCards = document.getElementById('gameCards');
 gameCards.addEventListener('click', handleClick);
 var hintButton = document.getElementById('hint');
 hintButton.addEventListener('click', hint);
+var hintModal = document.getElementById('hintModal');
+hintModal.addEventListener('click', closeHintModal);
 var firstCardClicked = null;
 var secondCardClicked = null;
 var firstCardClasses = null;
@@ -13,6 +15,7 @@ var maxMatches = 9;
 var matches = null;
 var attempts = 0;
 var gamesPlayed = 0;
+var hintCounter = 0;
 
 
 dynamicContainer.className = 'col-8';
@@ -99,6 +102,7 @@ function calculateAccuracy(attempts, matches){
 }
 
 function resetGame() {
+    hintCounter = 0;
     matches = null;
     attempts = 0;
     gamesPlayed++;
@@ -158,15 +162,26 @@ function shuffleClasses(){
 }
 
 function hint(){
-    var firstCardImage =  firstCardClicked.nextElementSibling.classList[1];
-    var firstCardImageGlow = firstCardClicked.nextElementSibling.classList[2];
-    var allFrontCards = document.querySelectorAll('.card-front');
-    var matchingCard ;
-    for(var i = 0; i < allFrontCards.length; i++){
-        if (allFrontCards[i].classList[1] === firstCardImage && allFrontCards[i].classList[2] !== firstCardImageGlow){
-            matchingCard = allFrontCards[i];
+    if(firstCardClicked === null){
+        hintModal.classList.remove('hidden');
+    } else if (hintCounter < 3 && firstCardClicked !== null){
+        hintCounter++;
+        var firstCardImage = firstCardClicked.nextElementSibling.classList[1];
+        var firstCardImageGlow = firstCardClicked.nextElementSibling.classList[2];
+        var allFrontCards = document.querySelectorAll('.card-front');
+        var matchingCard ;
+        for(var i = 0; i < allFrontCards.length; i++){
+            if (allFrontCards[i].classList[1] === firstCardImage && allFrontCards[i].classList[2] !== firstCardImageGlow){
+                matchingCard = allFrontCards[i];
+                matchingCard.previousElementSibling.classList.remove('cyan-glow');
+                matchingCard.previousElementSibling.classList.add('hint-glow');
+            }
         }
+    } else {
+        console.log("No more hints left");
     }
-    matchingCard.previousElementSibling.classList.remove('cyan-glow');
-    matchingCard.previousElementSibling.classList.add('hint-glow');
+}
+
+function closeHintModal(){
+    hintModal.classList.add('hidden');
 }
