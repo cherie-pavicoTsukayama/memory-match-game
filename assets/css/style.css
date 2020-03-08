@@ -164,6 +164,10 @@ p {
     justify-content: center;
 }
 
+.hint:hover {
+    cursor: default;
+}
+
 .hint-disabled {
     opacity: 25%;
     filter: grayscale(25%)
