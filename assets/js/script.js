@@ -44,17 +44,7 @@ for (var i = 0; i < 18; i++) {
     var cardBack = document.getElementsByClassName('card-back');
     cardBack[i].addEventListener('click', clickSound);
 }
-var clickCardSound = new Audio();
-function clickSound(){
-    clickCardSound.src = "./assets/sound/click.mp3";
-    clickCardSound.play();
-}
 
-var match = new Audio();
-function matchSound() {
-    match.src = "./assets/sound/match.mp3";
-    match.play();
-}
 
 
 
@@ -90,8 +80,6 @@ function handleClick(event){
     }
 }
 
-var clickCardSound = new Audio();
-clickCardSound.src = "./assets/sound/Tap.mp3"
 
 function removeHidden() {
     firstCardClicked.classList.remove('hidden');
@@ -222,4 +210,38 @@ function resetHintCounter() {
     elHintCounter.textContent = hintCounter;
     var hintContainer = document.getElementById('hintContainer');
     hintContainer.classList.remove('hint-disabled');
+}
+
+// function soundFxToggleOn() {
+//     var soundFxText = document.querySelector('.sound-fx-text');
+//     soundFxText.textContent = "Sound Effects: ON";
+// }
+
+var clickCardSound = new Audio();
+function clickSound() {
+    clickCardSound.src = null;
+    if (document.querySelector('.sound-fx-text').textContent === "Sound Effects: ON"){
+        clickCardSound.play()
+    }
+
+}
+
+var match = new Audio();
+function matchSound() {
+    match.src = "./assets/sound/match.mp3";
+    match.play();
+}
+
+function soundFXToggle() {
+    var soundFx = document.querySelector('.sound-fx-text');
+    var soundFxText = soundFx.textContent;
+    if (soundFxText === "Sound Effects: ON"){
+        soundFxText = "Sound Effects: OFF";
+        clickCardSound.src = null;
+    }
+    if (soundFxText === "Sound Effects: OFF") {
+        soundFxText = "Sound Effects: ON";
+        clickCardSound.src = "./assets/sound/click.mp3";
+
+    }
 }
