@@ -17,6 +17,16 @@ var attempts = 0;
 var gamesPlayed = 0;
 var hintCounter = 3;
 var matchingCard;
+var soundFx = document.getElementById('soundFx');
+soundFx.addEventListener('click', soundFXToggle);
+var cog = document.getElementById('cog');
+cog.addEventListener('click', settingsToggle);
+var closeModal = document.getElementById('closeModal');
+closeModal.addEventListener('click', settingsToggle);
+var bgMusicButton = document.getElementById('bgMusic');
+bgMusicButton.addEventListener('click', bgMusicToggle);
+var ambientMusic = document.getElementById('ambientMusic');
+
 
 
 
@@ -91,8 +101,10 @@ function removeHidden() {
     gameCards.addEventListener('click', handleClick);
     attempts++;
     displayStats();
-    matchingCard.previousElementSibling.classList.remove('hint-glow');
-    matchingCard.previousElementSibling.classList.add('cyan-glow');
+    if (matchingCard.previousElementSibling.classList[1] === "hint-glow"){
+        matchingCard.previousElementSibling.classList.remove('hint-glow');
+        matchingCard.previousElementSibling.classList.add('cyan-glow');
+    }
 }
 
 function displayStats(){
@@ -219,29 +231,63 @@ function resetHintCounter() {
 
 var clickCardSound = new Audio();
 function clickSound() {
-    clickCardSound.src = null;
     if (document.querySelector('.sound-fx-text').textContent === "Sound Effects: ON"){
         clickCardSound.play()
     }
-
 }
 
 var match = new Audio();
 function matchSound() {
-    match.src = "./assets/sound/match.mp3";
     match.play();
 }
 
 function soundFXToggle() {
     var soundFx = document.querySelector('.sound-fx-text');
-    var soundFxText = soundFx.textContent;
-    if (soundFxText === "Sound Effects: ON"){
-        soundFxText = "Sound Effects: OFF";
-        clickCardSound.src = null;
+    if (soundFx.textContent === "Sound Effects: ON"){
+        soundFx.textContent = "Sound Effects: OFF";
+        clickCardSound.removeAttribute('src');
+        match.removeAttribute('src');
+    } else if (soundFx.textContent === "Sound Effects: OFF") {
+        soundFx.textContent = "Sound Effects: ON";
+        clickCardSound.setAttribute("src", "./assets/sound/click.mp3");
+        match.setAttribute('src', "./assets/sound/match.mp3");
+    } else {
+        return;
     }
-    if (soundFxText === "Sound Effects: OFF") {
-        soundFxText = "Sound Effects: ON";
-        clickCardSound.src = "./assets/sound/click.mp3";
+}
 
+function settingsToggle(){
+    var settingModal = document.getElementById('settingsModal');
+    if(settingModal.classList[1] === 'hidden'){
+        settingModal.classList.remove('hidden');
+    } else {
+        settingModal.classList.add('hidden');
+    }
+}
+
+// var bgMusic = new Audio();
+// function playBgMusic() {
+//     bgMusic.src = "./assets/sound/memoryMatchBgMusic.mp3";
+//     bgMusic.play();
+// }
+
+function playAmbientMusic(){
+    ambientMusic.play();
+}
+
+function pauseAmbientMusic() {
+    ambientMusic.pause();
+}
+
+function bgMusicToggle() {
+    var bgMusicEl = document.querySelector('.bg-music-text');
+    if (bgMusicEl.textContent === "Background Music: ON") {
+        bgMusicEl.textContent = "Background Music: OFF";
+        pauseAmbientMusic()
+    } else if (bgMusicEl.textContent === "Background Music: OFF") {
+        bgMusicEl.textContent = "Background Music: ON";
+        playAmbientMusic();
+    } else {
+        return;
     }
 }

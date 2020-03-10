@@ -245,6 +245,18 @@ p {
     z-index: -1;
 }
 
+.close-modal {
+    font-size: 2vw;
+    color: rgba(255, 0255, 0255, 0.7);
+    background-color: rgba(0, 0, 0, 0.0);
+    border: 4px solid #00AEEF;
+    border-radius: 40px;
+    box-shadow: 0 0 100px rgb(94, 217, 255);
+    width: 20vw;
+    height: 5vw;
+
+
+}
 
 .css-logo {
     background-image: url(../images/customImages/front-cards/wings-frontCards.png);
