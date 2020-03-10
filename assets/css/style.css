@@ -106,7 +106,37 @@ p {
     margin: 0;
     flex-basis: 100%;
     font-size: 2.5vw;
+}
 
+.sound-fx > p,
+.bg-music > p{
+    margin: 0;
+    flex-basis: 100%;
+    font-size: 2vw;
+    word-spacing: 1rem;
+}
+
+.sound-fx {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-position: center;
+    flex-basis: 100%;
+    height: 25%;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-image: url(../images/customImages/sound-fx-setting.png);
+}
+.bg-music {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-position: center;
+    flex-basis: 100%;
+    height: 25%;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-image: url(../images/customImages/bg-music-setting.png);
 }
 
 .button {
@@ -123,8 +153,6 @@ p {
     font-size: 1vw;
     width: 17vw;
 }
-
-
 
 .card {
     height: 25%;
@@ -157,7 +185,15 @@ p {
 
 }
 
-.hint {
+.cog {
+    background-image: url(../images/customImages/settingsCog.png);
+    width: 3.5vw;
+    height: 3.5vw;
+    background-size: cover;
+    margin-top: 2vw;
+}
+
+.hint, .feature {
     display: flex;
     flex-wrap: wrap;
     align-content: center;
@@ -209,6 +245,18 @@ p {
     z-index: -1;
 }
 
+.close-modal {
+    font-size: 2vw;
+    color: rgba(255, 0255, 0255, 0.7);
+    background-color: rgba(0, 0, 0, 0.0);
+    border: 4px solid #00AEEF;
+    border-radius: 40px;
+    box-shadow: 0 0 100px rgb(94, 217, 255);
+    width: 20vw;
+    height: 5vw;
+
+
+}
 
 .css-logo {
     background-image: url(../images/customImages/front-cards/wings-frontCards.png);
