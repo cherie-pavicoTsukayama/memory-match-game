@@ -90,8 +90,12 @@ main{
     .col-1{
         width: 100%;
     }
-    .header-row {
+
+    .header-row > div > p {
         transform: rotate(0deg);
+    }
+    
+    .header-row {
         margin: 10px 0 5px 0;
     }
     .col-2 {
