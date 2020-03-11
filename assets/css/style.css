@@ -111,8 +111,8 @@ p {
 .sound-fx > p,
 .bg-music > p{
     margin: 0;
-    flex-basis: 100%;
-    font-size: 2vw;
+    flex-basis: 32vw;
+    font-size: 1.5vw;
     word-spacing: 1rem;
 }
 
@@ -193,6 +193,10 @@ p {
     margin-top: 2vw;
 }
 
+.cog:active{
+    transform: scale(.9);
+}
+
 .hint, .feature {
     display: flex;
     flex-wrap: wrap;
@@ -202,6 +206,9 @@ p {
 
 .hint:hover {
     cursor: default;
+}
+.hint:active {
+    transform: scale(.9);
 }
 
 .hint-disabled {
@@ -254,8 +261,10 @@ p {
     box-shadow: 0 0 100px rgb(94, 217, 255);
     width: 20vw;
     height: 5vw;
+}
 
-
+.close-modal:active{
+    transform: scale(.9);
 }
 
 .css-logo {

@@ -80,7 +80,15 @@ main{
 }
 
 @media only screen and (max-width: 414px){
-
+    main {
+        height: 70%;
+    }
+    .container{
+        width: 85%;
+    }
+    .col-8 {
+        width: 100%;
+    }
     .row {
         justify-content: flex-start;
         flex-wrap: nowrap;
@@ -94,12 +102,13 @@ main{
     .header-row > div > p {
         transform: rotate(0deg);
     }
-    
+
     .header-row {
         margin: 10px 0 5px 0;
-    }
+    } 
     .col-2 {
         width: 100%;
+        height: 15%;
         flex-direction: row;
         flex-wrap: nowrap;
     }
