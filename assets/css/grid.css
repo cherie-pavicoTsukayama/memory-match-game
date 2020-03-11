@@ -154,7 +154,26 @@ main{
    .cyan-glow {
        box-shadow: 0 0 10px cyan;
    }
-
+   .sound-fx > p,
+   .bg-music > p{
+        margin: 0;
+        flex-basis: 100%;
+        font-size: 4.5vw;
+        word-spacing: .5rem;
+    }
+    .close-modal {
+        font-size: 4vw;
+        border: 1px solid #00AEEF;
+        border-radius: 40px;
+        box-shadow: 0 0 20px rgb(94, 217, 255);
+        width: 39vw;
+        height: 11vw;
+    }
+    .modal > p {
+        margin: 0;
+        flex-basis: 100%;
+        font-size: 5.5vw;
+    }
 
 }
 
