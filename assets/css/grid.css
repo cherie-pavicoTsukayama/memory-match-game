@@ -175,12 +175,106 @@ main{
         font-size: 5.5vw;
     }
 
+    .hint-modal-bg-image {
+        width: 200%;
+        height: 80%;
+        background-position: center;
+        top: 26vw;
+    }
+    .hint-glow {
+        box-shadow: 0 0 20px yellow;
+    }
+    .magenta-glow {
+        box-shadow: 0 0 20px magenta;
+    }
+    .modal-bg-image {
+       width: 240%;
+       height: 100%;
+       left: -71%;
+   }
+   .button > button {
+       font-size: 3vw;
+       width: 54vw;
+   }
 }
+@media only screen
+  and (min-device-width: 375px)
+  and (max-device-width: 667px)
+  and (orientation: landscape) {
+    .cyan-glow {
+        box-shadow: 0 0 10px cyan;
+        z-index: 0;
+    }
 
+    .magenta-glow {
+        box-shadow: 0 0 20px magenta;
+        border: 1px solid white;
+        z-index: 1;
+    }
+    .hint-glow{
+        box-shadow: 0 0 30px yellow;
+        border: 1px solid white;
+        z-index: 1;
+    }
+    .sound-fx, .bg-music {
+        height: 35%;
+    }
+    .sound-fx > p, .bg-music > p {
+        font-size: 2vw;
+        word-spacing: .3vw;
+    }
+    .close-modal {
+        border: 1px solid #00AEEF;
+        box-shadow: 0 0 20px rgb(94, 217, 255);
+    }
+    .modal-bg-image {
+        width: 150%;
+        height: 150%;
+        top: -26%;
+    }
+    .modal > p {
+        font-size: 4.5vw;
+    }
+    .button > button {
+        font-size: 2vw;
+        width: 32vw;
+    }
+
+}
 
 @media only screen and (min-width: 768px)
 and (max-width: 1024px)
 and (orientation: portrait){
+    .hint, .cog, .hint-image, .hint-text {
+    height: 12vw;
+    width: 11vw;
+    font-size: 4vw;
+    margin-top: 1vw;
+    }
+    .cog {
+    margin-left: 18vw;
+    }
+
+    .hint-text{
+        display: none;
+    }
+
+    .hint-image{
+        background-position: center;
+    }
+    .hint-number {
+        font-size: 5.2vw;
+        margin-top: 1.2vw;
+    }
+    main {
+        height: 70%;
+    }
+    .container{
+        width: 85%;
+    }
+    .col-8 {
+        width: 100%;
+    }
     .row {
         justify-content: flex-start;
         flex-wrap: nowrap;
@@ -190,17 +284,17 @@ and (orientation: portrait){
     .col-1{
         width: 100%;
     }
-    .header-row {
+
+    .header-row > div > p {
         transform: rotate(0deg);
+    }
+
+    .header-row {
         margin: 10px 0 5px 0;
     }
-    .header-row > div > p {
-        font-size: 8vw;
-
-    }
-
     .col-2 {
         width: 100%;
+        height: 15%;
         flex-direction: row;
         flex-wrap: nowrap;
     }
@@ -208,16 +302,14 @@ and (orientation: portrait){
         height: 125%;
         background-size: contain;
     }
-    .stats > p,
-    stats-lable {
+    .stats > p, .stats-lable{
         font-size: 3vw;
-        width: 54%;
     }
     aside {
         height: 15vh;
     }
     .col-s-3{
-        width: 30%;
+        width: 26%;
         margin-bottom: 2%;
     }
    .col-9 {
@@ -227,23 +319,43 @@ and (orientation: portrait){
    .cyan-glow {
        box-shadow: 0 0 10px cyan;
    }
+   .sound-fx > p,
+   .bg-music > p{
+        margin: 0;
+        flex-basis: 100%;
+        font-size: 3.5vw;
+        word-spacing: .5rem;
+    }
+    .close-modal {
+        font-size: 4vw;
+        border: 1px solid #00AEEF;
+        border-radius: 40px;
+        box-shadow: 0 0 20px rgb(94, 217, 255);
+        width: 39vw;
+        height: 11vw;
+    }
+    .modal > p {
+        margin: 0;
+        flex-basis: 100%;
+        font-size: 5.5vw;
+    }
 
-   .magenta-glow {
-       box-shadow: 0 0 20px magenta;
-   }
-
-   .card {
-    height: 11vh;
-    width: 15vh;
-    margin: 9px 20px;
-   }
-   .modal-bg-image {
+    .hint-modal-bg-image {
+        width: 200%;
+        height: 80%;
+        background-position: center;
+        top: 26vw;
+    }
+    .hint-glow {
+        box-shadow: 0 0 20px yellow;
+    }
+    .magenta-glow {
+        box-shadow: 0 0 20px magenta;
+    }
+    .modal-bg-image {
        width: 240%;
        height: 100%;
        left: -71%;
-   }
-   .modal > p {
-       font-size: 8.5vw;
    }
    .button > button {
        font-size: 3vw;
@@ -254,77 +366,27 @@ and (orientation: portrait){
 @media only screen and (min-width: 768px)
 and (max-width: 1024px)
 and (orientation: landscape){
-    body {
-        background-size: auto;
-        height: 89vh;
+    .close-modal {
+        border: 1px solid #00AEEF;
+        border-radius: 40px;
+        box-shadow: 0 0 20px rgb(94, 217, 255);
     }
-    .row {
-        justify-content: flex-start;
-        flex-wrap: nowrap;
-        flex-direction: column;
-        height: 100%;
-        justify-content: space-around;
-    }
-    .col-1{
-        width: 100%;
-    }
-    .header-row {
-        transform: rotate(0deg);
-        margin: 10px 0 5px 0;
-    }
-    .header-row > div > p {
-        font-size: 8vw;
-
+    .cyan-glow {
+        box-shadow: 0 0 10px cyan;
+        z-index: 0;
     }
 
-    .col-2 {
-        width: 100%;
-        flex-direction: row;
-        flex-wrap: nowrap;
+    .magenta-glow {
+        box-shadow: 0 0 20px magenta;
+        border: 1px solid white;
+        z-index: 1;
     }
-    .stats {
-        height: 33vh;
-        background-size: contain;
+    .hint-glow{
+        box-shadow: 0 0 30px yellow;
+        border: 1px solid white;
+        z-index: 1;
     }
-    .stats > p,
-    stats-lable {
-        font-size: 3vw;
-        width: 54%;
+    aside > div {
+        background-size: 100%;
     }
-    aside {
-        height: 15vh;
-    }
-    .col-s-3{
-        width: 30%;
-        margin-bottom: 2%;
-    }
-   .col-9 {
-       width: 100%;
-       height: 47vh;
-   }
-   .cyan-glow {
-       box-shadow: 0 0 10px cyan;
-   }
-
-   .magenta-glow {
-       box-shadow: 0 0 20px magenta;
-   }
-
-   .card {
-    height: 17vh;
-    width: 17vh;
-    margin: 9px 20px;
-   }
-   .modal-bg-image {
-       width: 240%;
-       height: 100%;
-       left: -71%;
-   }
-   .modal > p {
-       font-size: 8.5vw;
-   }
-   .button > button {
-       font-size: 3vw;
-       width: 54vw;
-   }
 }

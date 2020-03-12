@@ -16,7 +16,7 @@ var matches = null;
 var attempts = 0;
 var gamesPlayed = 0;
 var hintCounter = 3;
-var matchingCard;
+var matchingCard = null;
 var soundFx = document.getElementById('soundFx');
 soundFx.addEventListener('click', soundFXToggle);
 var cog = document.getElementById('cog');
@@ -101,7 +101,9 @@ function removeHidden() {
     gameCards.addEventListener('click', handleClick);
     attempts++;
     displayStats();
-    if (matchingCard.previousElementSibling.classList[1] === "hint-glow"){
+    if(matchingCard === null){
+        return;
+    } else {
         matchingCard.previousElementSibling.classList.remove('hint-glow');
         matchingCard.previousElementSibling.classList.add('cyan-glow');
     }
@@ -224,10 +226,6 @@ function resetHintCounter() {
     hintContainer.classList.remove('hint-disabled');
 }
 
-// function soundFxToggleOn() {
-//     var soundFxText = document.querySelector('.sound-fx-text');
-//     soundFxText.textContent = "Sound Effects: ON";
-// }
 
 var clickCardSound = new Audio();
 function clickSound() {
@@ -265,11 +263,6 @@ function settingsToggle(){
     }
 }
 
-// var bgMusic = new Audio();
-// function playBgMusic() {
-//     bgMusic.src = "./assets/sound/memoryMatchBgMusic.mp3";
-//     bgMusic.play();
-// }
 
 function playAmbientMusic(){
     ambientMusic.play();

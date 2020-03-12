@@ -1,7 +1,8 @@
 body {
     height: 97vh;
     background-image: url(../images/customImages/backgroundImage-neon.png);
-    background-size: cover;
+    background-size: 100% 104%;
+    background-repeat: no-repeat;
     margin: 0;
     position: relative;
 }
@@ -176,6 +177,7 @@ p {
 
 .cyan-glow {
     box-shadow: 0 0 30px cyan;
+    z-index: 0;
 }
 
 .magenta-glow {
