@@ -32,6 +32,7 @@ var ambientMusic = document.getElementById('ambientMusic');
 
 dynamicContainer.className = 'col-8';
 var startingCardLogos = shuffleClasses();
+var startingCardLogosHardMode = shuffleClassesHardMode();
 
 for (var i = 0; i < 18; i++) {
     var dynamicCardBack = document.createElement('div');
@@ -55,7 +56,32 @@ for (var i = 0; i < 18; i++) {
     cardBack[i].addEventListener('click', clickSound);
 }
 
+function hardMode() {
+    removeAllCards();
 
+    for (var i = 0; i < 36; i++) {
+        var dynamicCardBack = document.createElement('div');
+        dynamicCardBack.classList.add('card-back', 'cyan-glow');
+
+        var dynamicCardFront = document.createElement('div');
+
+        var dynamicCard = document.createElement('div');
+        dynamicContainer.appendChild(dynamicCard);
+        dynamicCard.classList.add("col-2", "hard-card", "col-s-3");
+        dynamicCard.appendChild(dynamicCardBack);
+        dynamicCard.appendChild(dynamicCardFront);
+        dynamicCardFront.classList.add('hidden');
+        dynamicCardFront.classList.add('card-front', startingCardLogosHardMode[i]);
+    }
+    for (var i = 0; i < 36; i++) {
+        var cardFronts = document.querySelectorAll('.card-front');
+        cardFronts[i].classList.remove('hidden');
+        var cardBack = document.getElementsByClassName('card-back');
+        cardBack[i].addEventListener('click', clickSound);
+    }
+
+
+}
 
 
 function handleClick(event){
@@ -157,6 +183,15 @@ function shuffleCards() {
     }
 }
 
+function shuffleCardsHardMode() {
+    var allFrontCards = document.querySelectorAll('.card-front');
+    var newClassArray = shuffleClassesHardMode();
+    for (var i = 0; i < allFrontCards.length; i++) {
+        allFrontCards[i].className = "null";
+        allFrontCards[i].className = "card-front " + newClassArray[i];
+    }
+}
+
 function shuffleClasses(){
     var logoClasses = ['css-logo',
         'docker-logo',
@@ -176,6 +211,53 @@ function shuffleClasses(){
         'node-logo',
         'php-logo',
         'react-logo']
+    for (var i = 0; i < logoClasses.length; i++) {
+        var randomization = Math.floor(Math.random() * logoClasses.length)
+        var placeHolder = logoClasses[i];
+        logoClasses[i] = logoClasses[randomization];
+        logoClasses[randomization] = placeHolder;
+    }
+    return logoClasses;
+}
+
+function shuffleClassesHardMode() {
+    var logoClasses = ['css-logo',
+        'docker-logo',
+        'gitHub-logo',
+        'html-logo',
+        'js-logo',
+        'mysql-logo',
+        'node-logo',
+        'php-logo',
+        'react-logo',
+        'css-logo',
+        'docker-logo',
+        'gitHub-logo',
+        'html-logo',
+        'js-logo',
+        'mysql-logo',
+        'node-logo',
+        'php-logo',
+        'react-logo',
+        'cow-logo',
+        'banana-logo',
+        'blue-lightning-logo',
+        'comment-bubble-logo',
+        'fireworks-logo',
+        'glasses-logo',
+        'hotdog-logo',
+        'question-logo',
+        'smileyface-logo',
+        'cow-logo',
+        'banana-logo',
+        'blue-lightning-logo',
+        'comment-bubble-logo',
+        'fireworks-logo',
+        'glasses-logo',
+        'hotdog-logo',
+        'question-logo',
+        'smileyface-logo'
+    ]
     for (var i = 0; i < logoClasses.length; i++) {
         var randomization = Math.floor(Math.random() * logoClasses.length)
         var placeHolder = logoClasses[i];
@@ -282,5 +364,13 @@ function bgMusicToggle() {
         playAmbientMusic();
     } else {
         return;
+    }
+}
+
+function removeAllCards() {
+    var main = document.getElementById('gameCards');
+    var cards = document.querySelectorAll('.card');
+    for(var i = 0; i < cards.length; i++){
+        main.firstChild.remove();
     }
 }
