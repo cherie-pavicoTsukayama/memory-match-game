@@ -247,6 +247,15 @@ function shuffleClassesHardMode() {
         'glasses-logo',
         'hotdog-logo',
         'question-logo',
+        'smileyface-logo',
+        'cow-logo',
+        'banana-logo',
+        'blue-lightning-logo',
+        'comment-bubble-logo',
+        'fireworks-logo',
+        'glasses-logo',
+        'hotdog-logo',
+        'question-logo',
         'smileyface-logo'
     ]
     for (var i = 0; i < logoClasses.length; i++) {
