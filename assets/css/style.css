@@ -160,6 +160,10 @@ p {
     position: relative;
 }
 
+.hard-card {
+    height: 16%;
+    position: relative;
+}
 .card-front, .card-back {
     height: 100%;
     width: 100%;
@@ -303,6 +307,42 @@ p {
 
 .react-logo {
     background-image: url(../images/customImages/front-cards/angelHeart-cardFront.png);
+}
+
+.cow-logo {
+    background-image: url(../images/customImages/front-cards/cow-cardFront.png);
+}
+
+.banana-logo {
+    background-image: url(../images/customImages/front-cards/banana-cardFront.png);
+}
+
+.blue-lightning-logo {
+    background-image: url(../images/customImages/front-cards/blueLightning-cardFront.png);
+}
+
+.comment-bubble-logo {
+    background-image: url(../images/customImages/front-cards/commentBubble-cardFront.png);
+}
+
+.fireworks-logo {
+    background-image: url(../images/customImages/front-cards/fireWorks-cardFront.png);
+}
+
+.glasses-logo {
+    background-image: url(../images/customImages/front-cards/glasses-cardFront.png);
+}
+
+.hotdog-logo {
+    background-image: url(../images/customImages/front-cards/hotDog-cardFront.png);
+}
+
+.question-logo {
+    background-image: url(../images/customImages/front-cards/question-cardFront.png);
+}
+
+.smileyface-logo{
+    background-image: url(../images/customImages/front-cards/smileyFace-cardFront.png);
 }
 
 .hidden {
