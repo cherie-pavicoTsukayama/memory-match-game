@@ -26,6 +26,7 @@ closeModal.addEventListener('click', settingsToggle);
 var bgMusicButton = document.getElementById('bgMusic');
 bgMusicButton.addEventListener('click', bgMusicToggle);
 var ambientMusic = document.getElementById('ambientMusic');
+var modeSelected = null;
 
 
 
@@ -58,7 +59,7 @@ for (var i = 0; i < 18; i++) {
 
 function hardMode() {
     removeAllCards();
-
+    modeSelected = 'hardMode';
     for (var i = 0; i < 36; i++) {
         var dynamicCardBack = document.createElement('div');
         dynamicCardBack.classList.add('card-back', 'cyan-glow');
@@ -84,8 +85,8 @@ function hardMode() {
 }
 
 
-function handleClick(event){
-    if(event.target.className.indexOf("card-back") === -1){
+function handleClick(event) {
+    if (event.target.className.indexOf("card-back") === -1) {
         return;
     }
     var clickedElement = event.target;
@@ -99,7 +100,7 @@ function handleClick(event){
         secondCardClicked = clickedElement;
         secondCardClasses = secondCardClicked.nextElementSibling.className;
         gameCards.removeEventListener('click', handleClick);
-        if (firstCardClasses === secondCardClasses){
+        if (firstCardClasses === secondCardClasses) {
             gameCards.addEventListener('click', handleClick);
             firstCardClicked = null;
             secondCardClicked = null;
@@ -107,15 +108,21 @@ function handleClick(event){
             attempts++;
             displayStats();
             matchSound();
-            if(matches === maxMatches){
-                document.querySelector(".modal-container").classList.remove('hidden');
+            if (modeSelected === "hardMode") {
+                if (matches === 18) {
+                    document.querySelector(".modal-container").classList.remove('hidden');
+                }
+            }
+            if (modeSelected === "normal"){
+                if (matches === 9) {
+                    document.querySelector(".modal-container").classList.remove('hidden');
+                }
             }
         } else {
             setTimeout(removeHidden, 1000);
         }
     }
 }
-
 
 function removeHidden() {
     firstCardClicked.classList.remove('hidden');
@@ -127,7 +134,7 @@ function removeHidden() {
     gameCards.addEventListener('click', handleClick);
     attempts++;
     displayStats();
-    if(matchingCard === null){
+    if (matchingCard === null) {
         return;
     } else {
         matchingCard.previousElementSibling.classList.remove('hint-glow');
@@ -135,14 +142,14 @@ function removeHidden() {
     }
 }
 
-function displayStats(){
+function displayStats() {
     document.getElementById('gamesPlayed').textContent = gamesPlayed;
     document.getElementById('attempts').textContent = attempts;
     document.getElementById('accuracy').textContent = calculateAccuracy(attempts, matches);
 }
 
-function calculateAccuracy(attempts, matches){
-    if(!attempts){
+function calculateAccuracy(attempts, matches) {
+    if (!attempts) {
         return "0%"
     }
     var accuracy = matches / attempts;
@@ -165,7 +172,7 @@ function resetGame() {
 
 function resetCards() {
     var hiddenCards = document.querySelectorAll('.card-back');
-    for(var i = 0; i < hiddenCards.length; i++){
+    for (var i = 0; i < hiddenCards.length; i++) {
         hiddenCards[i].classList.remove('hidden', 'hint-glow');
         hiddenCards[i].classList.add('cyan-glow');
     }
@@ -177,7 +184,7 @@ button.addEventListener('click', resetGame);
 function shuffleCards() {
     var allFrontCards = document.querySelectorAll('.card-front');
     var newClassArray = shuffleClasses();
-    for(var i = 0; i < allFrontCards.length; i++){
+    for (var i = 0; i < allFrontCards.length; i++) {
         allFrontCards[i].className = "null";
         allFrontCards[i].className = "card-front " + newClassArray[i];
     }
@@ -192,7 +199,7 @@ function shuffleCardsHardMode() {
     }
 }
 
-function shuffleClasses(){
+function shuffleClasses() {
     var logoClasses = ['css-logo',
         'docker-logo',
         'gitHub-logo',
@@ -267,18 +274,18 @@ function shuffleClassesHardMode() {
     return logoClasses;
 }
 
-function hint(){
-    if (firstCardClicked === null && hintCounter !== 0){
+function hint() {
+    if (firstCardClicked === null && hintCounter !== 0) {
         hintModal.classList.remove('hidden');
-    } else if (hintCounter > 0 && firstCardClicked !== null){
+    } else if (hintCounter > 0 && firstCardClicked !== null) {
         hintCounter -= 1;
         var elHintCounter = document.getElementById('hintCounter');
         elHintCounter.textContent = hintCounter;
         var firstCardImage = firstCardClicked.nextElementSibling.classList[1];
         var firstCardImageGlow = firstCardClicked.nextElementSibling.classList[2];
         var allFrontCards = document.querySelectorAll('.card-front');
-        for(var i = 0; i < allFrontCards.length; i++){
-            if (allFrontCards[i].classList[1] === firstCardImage && allFrontCards[i].classList[2] !== firstCardImageGlow){
+        for (var i = 0; i < allFrontCards.length; i++) {
+            if (allFrontCards[i].classList[1] === firstCardImage && allFrontCards[i].classList[2] !== firstCardImageGlow) {
                 matchingCard = allFrontCards[i];
                 matchingCard.previousElementSibling.classList.remove('cyan-glow');
                 matchingCard.previousElementSibling.classList.add('hint-glow');
@@ -288,11 +295,11 @@ function hint(){
     hintDisable();
 }
 
-function closeHintModal(){
+function closeHintModal() {
     hintModal.classList.add('hidden');
 }
 
-function hintDisable(){
+function hintDisable() {
     if (hintCounter === 0) {
         var hintContainer = document.getElementById('hintContainer');
         hintContainer.classList.add('hint-disabled');
@@ -311,7 +318,7 @@ function resetHintCounter() {
 
 var clickCardSound = new Audio();
 function clickSound() {
-    if (document.querySelector('.sound-fx-text').textContent === "Sound Effects: ON"){
+    if (document.querySelector('.sound-fx-text').textContent === "Sound Effects: ON") {
         clickCardSound.play()
     }
 }
@@ -323,7 +330,7 @@ function matchSound() {
 
 function soundFXToggle() {
     var soundFx = document.querySelector('.sound-fx-text');
-    if (soundFx.textContent === "Sound Effects: ON"){
+    if (soundFx.textContent === "Sound Effects: ON") {
         soundFx.textContent = "Sound Effects: OFF";
         clickCardSound.removeAttribute('src');
         match.removeAttribute('src');
@@ -336,9 +343,9 @@ function soundFXToggle() {
     }
 }
 
-function settingsToggle(){
+function settingsToggle() {
     var settingModal = document.getElementById('settingsModal');
-    if(settingModal.classList[1] === 'hidden'){
+    if (settingModal.classList[1] === 'hidden') {
         settingModal.classList.remove('hidden');
     } else {
         settingModal.classList.add('hidden');
@@ -346,7 +353,7 @@ function settingsToggle(){
 }
 
 
-function playAmbientMusic(){
+function playAmbientMusic() {
     ambientMusic.play();
 }
 
@@ -370,7 +377,7 @@ function bgMusicToggle() {
 function removeAllCards() {
     var main = document.getElementById('gameCards');
     var cards = document.querySelectorAll('.card');
-    for(var i = 0; i < cards.length; i++){
+    for (var i = 0; i < cards.length; i++) {
         main.firstChild.remove();
     }
 }
