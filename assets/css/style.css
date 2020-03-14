@@ -110,7 +110,7 @@ p {
 }
 
 .sound-fx > p,
-.bg-music > p{
+.settings-pink-bg > p{
     margin: 0;
     flex-basis: 32vw;
     font-size: 1.5vw;
@@ -128,7 +128,7 @@ p {
     background-repeat: no-repeat;
     background-image: url(../images/customImages/sound-fx-setting.png);
 }
-.bg-music {
+.settings-pink-bg {
     display: flex;
     justify-content: center;
     align-items: center;

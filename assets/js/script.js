@@ -27,6 +27,8 @@ var bgMusicButton = document.getElementById('bgMusic');
 bgMusicButton.addEventListener('click', bgMusicToggle);
 var ambientMusic = document.getElementById('ambientMusic');
 var modeSelected = null;
+var gameMode = document.getElementById('gameMode');
+gameMode.addEventListener('click', gameModeToggle);
 
 
 
@@ -376,6 +378,19 @@ function bgMusicToggle() {
     } else if (bgMusicEl.textContent === "Background Music: OFF") {
         bgMusicEl.textContent = "Background Music: ON";
         playAmbientMusic();
+    } else {
+        return;
+    }
+}
+
+function gameModeToggle() {
+    var gameModeEl = document.querySelector('.game-mode-text');
+    if (gameModeEl.textContent === "Game Mode: Normal") {
+        gameModeEl.textContent = "Game Mode: Hard";
+        hardMode();
+    } else if (gameModeEl.textContent === "Game Mode: Hard") {
+        gameModeEl.textContent = "Game Mode: Normal";
+        normalMode();
     } else {
         return;
     }
