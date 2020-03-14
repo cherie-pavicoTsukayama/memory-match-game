@@ -31,31 +31,40 @@ var modeSelected = null;
 
 
 
+
 dynamicContainer.className = 'col-8';
 var startingCardLogos = shuffleClasses();
 var startingCardLogosHardMode = shuffleClassesHardMode();
 
-for (var i = 0; i < 18; i++) {
-    var dynamicCardBack = document.createElement('div');
-    dynamicCardBack.classList.add('card-back', 'cyan-glow');
+normalMode();
 
-    var dynamicCardFront = document.createElement('div');
+function normalMode(){
+    removeAllCards();
+    modeSelected = 'normal';
+    for (var i = 0; i < 18; i++) {
+        var dynamicCardBack = document.createElement('div');
+        dynamicCardBack.classList.add('card-back', 'cyan-glow');
 
-    var dynamicCard = document.createElement('div');
-    dynamicContainer.appendChild(dynamicCard);
-    dynamicCard.classList.add("col-2", "card", "col-s-3");
-    dynamicCard.appendChild(dynamicCardBack);
-    dynamicCard.appendChild(dynamicCardFront);
-    dynamicCardFront.classList.add('hidden');
-    dynamicCardFront.classList.add('card-front', startingCardLogos[i]);
+        var dynamicCardFront = document.createElement('div');
+
+        var dynamicCard = document.createElement('div');
+        dynamicContainer.appendChild(dynamicCard);
+        dynamicCard.classList.add("col-2", "card", "col-s-3");
+        dynamicCard.appendChild(dynamicCardBack);
+        dynamicCard.appendChild(dynamicCardFront);
+        dynamicCardFront.classList.add('hidden');
+        dynamicCardFront.classList.add('card-front', startingCardLogos[i]);
+    }
+
+    for (var i = 0; i < 18; i++) {
+        var cardFronts = document.querySelectorAll('.card-front');
+        cardFronts[i].classList.remove('hidden');
+        var cardBack = document.getElementsByClassName('card-back');
+        cardBack[i].addEventListener('click', clickSound);
+    }
 }
 
-for (var i = 0; i < 18; i++) {
-    var cardFronts = document.querySelectorAll('.card-front');
-    cardFronts[i].classList.remove('hidden');
-    var cardBack = document.getElementsByClassName('card-back');
-    cardBack[i].addEventListener('click', clickSound);
-}
+
 
 function hardMode() {
     removeAllCards();
@@ -80,8 +89,6 @@ function hardMode() {
         var cardBack = document.getElementsByClassName('card-back');
         cardBack[i].addEventListener('click', clickSound);
     }
-
-
 }
 
 
@@ -377,7 +384,11 @@ function bgMusicToggle() {
 function removeAllCards() {
     var main = document.getElementById('gameCards');
     var cards = document.querySelectorAll('.card');
+    var hardCard = document.querySelectorAll('.hard-card')
     for (var i = 0; i < cards.length; i++) {
+        main.firstChild.remove();
+    }
+    for (var i = 0; i < hardCard.length; i++) {
         main.firstChild.remove();
     }
 }
