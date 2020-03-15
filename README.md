@@ -36,7 +36,7 @@ Try the application live at https://memory-match.cheriepavico.com/
 7. The game keeps track of player's accuracy, attempts to make a match per game and how many games the player has played.
 
 ## Preview
-<img src="assets/images/neon-mm-quick-demo.gif">
+<img src="assets/images/customImages/neon-mm-quick-demo.gif">
 
 ## System Requirments
 - Google Chrome
