@@ -11,7 +11,6 @@ var firstCardClicked = null;
 var secondCardClicked = null;
 var firstCardClasses = null;
 var secondCardClasses = null;
-var maxMatches = 9;
 var matches = null;
 var attempts = 0;
 var gamesPlayed = 0;
@@ -40,8 +39,9 @@ var startingCardLogosHardMode = shuffleClassesHardMode();
 
 normalMode();
 
-function normalMode(){
+function normalMode() {
     removeAllCards();
+    resetHintCounter();
     modeSelected = 'normal';
     for (var i = 0; i < 18; i++) {
         var dynamicCardBack = document.createElement('div');
@@ -70,6 +70,7 @@ function normalMode(){
 
 function hardMode() {
     removeAllCards();
+    resetHintCounter();
     modeSelected = 'hardMode';
     for (var i = 0; i < 36; i++) {
         var dynamicCardBack = document.createElement('div');
@@ -122,7 +123,7 @@ function handleClick(event) {
                     document.querySelector(".modal-container").classList.remove('hidden');
                 }
             }
-            if (modeSelected === "normal"){
+            if (modeSelected === "normal") {
                 if (matches === 9) {
                     document.querySelector(".modal-container").classList.remove('hidden');
                 }
@@ -199,14 +200,6 @@ function shuffleCards() {
     }
 }
 
-function shuffleCardsHardMode() {
-    var allFrontCards = document.querySelectorAll('.card-front');
-    var newClassArray = shuffleClassesHardMode();
-    for (var i = 0; i < allFrontCards.length; i++) {
-        allFrontCards[i].className = "null";
-        allFrontCards[i].className = "card-front " + newClassArray[i];
-    }
-}
 
 function shuffleClasses() {
     var logoClasses = ['css-logo',
