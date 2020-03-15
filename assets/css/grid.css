@@ -147,6 +147,10 @@ main{
         width: 30%;
         margin-bottom: 2%;
     }
+     .hard-card {
+       width: 15%;
+       margin-bottom: 2%;
+   }
    .col-9 {
        width: 100%;
        height: 47vh;
@@ -155,7 +159,7 @@ main{
        box-shadow: 0 0 10px cyan;
    }
    .sound-fx > p,
-   .bg-music > p{
+   .settings-pink-bg > p{
         margin: 0;
         flex-basis: 100%;
         font-size: 4.5vw;
@@ -216,11 +220,11 @@ main{
         border: 1px solid white;
         z-index: 1;
     }
-    .sound-fx, .bg-music {
-        height: 35%;
+    .sound-fx, .settings-pink-bg {
+        height: 26%;
     }
-    .sound-fx > p, .bg-music > p {
-        font-size: 2vw;
+    .sound-fx > p, .settings-pink-bg > p {
+        font-size: 1.5vw;
         word-spacing: .3vw;
     }
     .close-modal {
@@ -233,7 +237,7 @@ main{
         top: -26%;
     }
     .modal > p {
-        font-size: 4.5vw;
+        font-size: 3.3vw;
     }
     .button > button {
         font-size: 2vw;
@@ -315,6 +319,10 @@ and (orientation: portrait){
    .col-9 {
        width: 100%;
        height: 47vh;
+   }
+    .hard-card {
+       width: 15%;
+       margin-bottom: 2%;
    }
    .cyan-glow {
        box-shadow: 0 0 10px cyan;
