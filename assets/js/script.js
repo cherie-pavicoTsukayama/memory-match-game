@@ -28,7 +28,10 @@ var ambientMusic = document.getElementById('ambientMusic');
 var modeSelected = null;
 var gameMode = document.getElementById('gameMode');
 gameMode.addEventListener('click', gameModeToggle);
-
+var modalAttempts = document.getElementById('modalAttempts');
+modalAttempts.textContent = "Attempts: " + attempts;
+var modalAccuracy = document.getElementById('modalAccuracy');
+modalAccuracy.textContent = "Accuracy: " + calculateAccuracy(attempts, matches);
 
 
 
