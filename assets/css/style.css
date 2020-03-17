@@ -170,6 +170,7 @@ p {
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
+    transition: all .2s ease-in-out;
 }
 
 .card-back {
@@ -178,9 +179,21 @@ p {
     position: absolute;
     top: 0;
 }
+.card-back:hover  {
+    cursor: pointer;
+    transform: scale(1.04);
+    z-index: 1;
+    box-shadow: 0 0 30px white;
+}
+
+.hint:hover, .cog:hover {
+    cursor: pointer;
+    transform: scale(1.3);
+}
+
 
 .cyan-glow {
-    box-shadow: 0 0 30px cyan;
+    box-shadow: 0 0 10px cyan;
     z-index: 0;
 }
 
@@ -203,6 +216,10 @@ p {
     transform: scale(.9);
 }
 
+.hint, .cog {
+    transition: all .2s ease-in-out;
+}
+
 .hint, .feature {
     display: flex;
     flex-wrap: wrap;
@@ -210,9 +227,6 @@ p {
     justify-content: center;
 }
 
-.hint:hover {
-    cursor: default;
-}
 .hint:active {
     transform: scale(.9);
 }
