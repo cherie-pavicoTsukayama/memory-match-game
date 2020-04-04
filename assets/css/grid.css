@@ -328,7 +328,9 @@ and (orientation: portrait){
        box-shadow: 0 0 10px cyan;
    }
    .sound-fx > p,
-   .bg-music > p{
+   .bg-music > p,
+   .settings-pink-bg > p
+   {
         margin: 0;
         flex-basis: 100%;
         font-size: 3.5vw;
